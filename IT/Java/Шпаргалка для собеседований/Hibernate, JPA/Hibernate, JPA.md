@@ -1,0 +1,4 @@
+- [[Spring Data JPA и Hibernate]] — полный конспект под собеседование
+- [[Lazy vs Eager и LazyInitializationException]]
+- Pageble
+- проблема fetch с pageable

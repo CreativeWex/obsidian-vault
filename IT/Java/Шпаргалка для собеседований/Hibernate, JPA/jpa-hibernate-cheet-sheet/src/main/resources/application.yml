@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: jpa-hibernate-cheet-sheet
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jpa_cheatsheet
+    username: app
+    password: app
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    # для отработки навыков удобно, чтобы Hibernate сам создавал/обновлял схему по @Entity.
+    # create-drop — пересоздавать на каждый запуск; update — досоздавать; validate — только проверять; none — ничего.
+    hibernate:
+      ddl-auto: update
+    # печатать генерируемый SQL в консоль — чтобы видеть N+1, join fetch и т.п.
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    # отключаем Open Session In View — чтобы ловить LazyInitializationException честно, а не маскировать
+    open-in-view: false
+
+logging:
+  level:
+    # SQL-запросы и значения биндинга параметров (Hibernate 6)
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
